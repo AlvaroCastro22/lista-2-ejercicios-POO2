@@ -1,0 +1,5 @@
+Diseñar;Alvaro;PENDIENTE;Aplicación de Reserva
+Planear;Rosa;PROGRESO;Aplicación de Reserva
+Fabrizio;Maquetar;PENDIENTE;gestion inventario
+Alvaro;algo;PENDIENTE;Aplicación de Reserva
+Raul;inventario;PENDIENTE;proyecto2

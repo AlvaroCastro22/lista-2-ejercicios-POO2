@@ -1,0 +1,17 @@
+view\FrmCrearTarea$1.class
+repository\ProyectoRepository.class
+controller\ProyectoController.class
+repository\TareaRepository.class
+view\FrmCrearTarea.class
+view\FrmBuscarTarea$2.class
+model\Proyecto.class
+view\FrmCrearTarea$5.class
+view\FrmBuscarTarea$1.class
+model\Tarea.class
+controller\TareaController.class
+com\usil\mavenproject4\Mavenproject4.class
+view\FrmCrearTarea$4.class
+view\FrmBuscarTarea$3.class
+view\FrmBuscarTarea.class
+view\FrmCrearTarea$3.class
+view\FrmCrearTarea$2.class
