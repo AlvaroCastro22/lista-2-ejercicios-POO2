@@ -9,6 +9,7 @@ import repository.TareaRepository;
 
 public class TareaController {
     public void registrarTarea(Tarea libro) throws IOException {
+        System.out.println("XD");
         TareaRepository.guardarTarea(libro);  // Guardar el libro en el archivo
     }
 
