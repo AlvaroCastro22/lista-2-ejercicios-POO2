@@ -4,8 +4,8 @@
  */
 package view;
 
-import controller.ProyectoController;
-import controller.TareaController;
+import controller.EventoController;
+import controller.InvitadoController;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -23,12 +23,12 @@ public class FrmBuscarTarea extends javax.swing.JFrame {
     /**
      * Creates new form FrmBuscarTarea
      */
-    private TareaController tareaController;
-    private ProyectoController proyectoController; 
+    private InvitadoController tareaController;
+    private EventoController proyectoController; 
     public FrmBuscarTarea() {
         initComponents();
-        tareaController= new TareaController();
-        proyectoController = new ProyectoController();
+        tareaController= new InvitadoController();
+        proyectoController = new EventoController();
         configurarTabla();
         cargarTareasEnTabla();
         cargarAutoresEnComboBox();
@@ -205,7 +205,7 @@ public class FrmBuscarTarea extends javax.swing.JFrame {
     
     private void cargarAutoresEnComboBox() {
         try {
-            List<Evento> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
+            List<Evento> autores = proyectoController.listarEventos();  // Obtener autores desde EventoController
             DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
             for (Evento autor : autores) {
                 modelo.addElement(autor.getNombre());  // Agregar el nombre del proyecto al modelo del ComboBox

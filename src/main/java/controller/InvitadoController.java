@@ -7,7 +7,7 @@ import model.Invitado;
 import repository.InvitadoRepository;
 
 
-public class TareaController {
+public class InvitadoController {
     public void registrarTarea(Invitado libro) throws IOException {
         System.out.println("XD");
         InvitadoRepository.guardarTarea(libro);  // Guardar el libro en el archivo

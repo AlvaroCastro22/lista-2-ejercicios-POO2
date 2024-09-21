@@ -10,12 +10,12 @@ import model.Evento;
 import repository.EventoRepository;
 
 
-public class ProyectoController {
-    public void guardarProyecto(Evento proyecto) throws IOException {
+public class EventoController {
+    public void guardarEvento(Evento proyecto) throws IOException {
         EventoRepository.guardarProyecto(proyecto);  // Guardar el proyecto en el archivo
     }
     
-    public List<Evento> listarProyectos() throws IOException {
+    public List<Evento> listarEventos() throws IOException {
         return EventoRepository.cargarProyectos();  // Cargar los autores desde el archivo
     }
 }

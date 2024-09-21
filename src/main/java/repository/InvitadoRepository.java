@@ -24,7 +24,7 @@ public class InvitadoRepository {
     
     public static void guardarTarea(Invitado tarea) throws IOException {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH,true))){
-            writer.write(tarea.getNombre()+";"+tarea.getNumCelular()+";"+tarea.getGenero()+";"+tarea.getFecha()+";"+tarea.getDireccion()+";"+tarea.getEvento().getNombre());
+            writer.write(tarea.getNombre()+";"+tarea.getNumCelular()+";"+tarea.getGenero()+";"+tarea.getFecha()+";"+tarea.getDireccion()+";"+tarea.getEvento().getNombre()+";"+tarea.isAceptaTerminos());
             writer.newLine();
         }
     }
@@ -41,15 +41,16 @@ public class InvitadoRepository {
             while ((line=reader.readLine()) != null){
                 
                 String[] parts = line.split(";");
-                if(parts.length == 6){
+                if(parts.length == 7){
                     String nombre = parts[0];
                     String numCelular = parts[1];
                     String genero = parts[2];
                     String fecha = parts[3];
                     String direccion = parts[4];
                     Evento proyecto = new Evento(parts[5]);
+                    boolean aceptaTerminos = Boolean.parseBoolean(parts[6]);
                     
-                    tareas.add(new Invitado(nombre,numCelular,genero,fecha,direccion,proyecto));
+                    tareas.add(new Invitado(nombre,numCelular,genero,fecha,direccion,proyecto,aceptaTerminos));
                 }
             }
         }

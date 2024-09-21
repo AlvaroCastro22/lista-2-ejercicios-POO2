@@ -4,8 +4,8 @@
  */
 package view;
 
-import controller.ProyectoController;
-import controller.TareaController;
+import controller.EventoController;
+import controller.InvitadoController;
 import java.io.IOException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -18,16 +18,16 @@ import model.Invitado;
  * @author alvar
  */
 public class FrmCrearTarea extends javax.swing.JFrame {
-    private TareaController tareaController; 
-    private ProyectoController proyectoController; 
+    private InvitadoController tareaController; 
+    private EventoController proyectoController; 
 
     /**
      * Creates new form FrmCrearLibro
      */
     public FrmCrearTarea() {
         initComponents();
-        proyectoController = new ProyectoController();
-        tareaController = new TareaController(); 
+        proyectoController = new EventoController();
+        tareaController = new InvitadoController(); 
         cargarAutoresEnComboBox();
         
     }
@@ -215,9 +215,9 @@ mostrarDialogoNuevoProyecto();        // TODO add your handling code here:
 
         if (nuevoAutor != null && !nuevoAutor.trim().isEmpty()) {
             try {
-                // Crear el objeto Evento y guardarlo usando ProyectoController
+                // Crear el objeto Evento y guardarlo usando EventoController
                 Evento autor = new Evento(nuevoAutor);
-                proyectoController.guardarProyecto(autor);
+                proyectoController.guardarEvento(autor);
 
                 // Volver a cargar los autores en el JComboBox
                 cargarAutoresEnComboBox();
@@ -231,7 +231,7 @@ mostrarDialogoNuevoProyecto();        // TODO add your handling code here:
     }
     private void cargarAutoresEnComboBox() {
         try {
-            List<Evento> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
+            List<Evento> autores = proyectoController.listarEventos();  // Obtener autores desde EventoController
             DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
             for (Evento autor : autores) {
                 modelo.addElement(autor.getNombre());  // Agregar el nombre del autor al modelo del ComboBox

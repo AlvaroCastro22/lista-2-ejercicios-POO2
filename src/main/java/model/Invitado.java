@@ -17,4 +17,5 @@ public class Invitado {
     private String fecha;
     private String direccion;
     private Evento evento;
+    private boolean aceptaTerminos;
 }
