@@ -12,35 +12,35 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Proyecto;
+import model.Evento;
 
 /**
  *
  * @author alvar
  */
-public class ProyectoRepository {
-    private static final String FILE_PATH = "proyectos.txt";
+public class EventoRepository {
+    private static final String FILE_PATH = "eventos.txt";
     
     
-    public static void guardarProyecto(Proyecto proyecto) throws IOException{
+    public static void guardarProyecto(Evento evento) throws IOException{
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH,true))){
-            writer.write(proyecto.getNombre());
+            writer.write(evento.getNombre());
             writer.newLine();
         }
     }
-    public static List<Proyecto> cargarProyectos() throws IOException{
+    public static List<Evento> cargarProyectos() throws IOException{
         
-        List<Proyecto> proyectos = new ArrayList<>();
+        List<Evento> eventos = new ArrayList<>();
         File file = new File(FILE_PATH);
         if(!file.exists()){
-            return proyectos;
+            return eventos;
         }
         try (BufferedReader reader = new BufferedReader(new FileReader(file))){
             String line;
             while ((line=reader.readLine()) != null){
-            proyectos.add(new Proyecto(line));
+            eventos.add(new Evento(line));
             }
         }
-        return proyectos;
+        return eventos;
     };
 }

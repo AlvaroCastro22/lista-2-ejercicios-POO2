@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
-import model.Proyecto;
-import model.Tarea;
+import model.Evento;
+import model.Invitado;
 
 /**
  *
@@ -178,11 +178,11 @@ try {
             String nombre = txtNombre.getText();
             String responsable = txtResponsable.getText();
             String estadoSeleccionado = (String) cboEstado.getSelectedItem();
-            Proyecto proyectoSeleccionado = new Proyecto(cboProyecto.getSelectedItem().toString());
+            Evento proyectoSeleccionado = new Evento(cboProyecto.getSelectedItem().toString());
               // Al revés de "No Leído"
 
-            // Crear un objeto Tarea con los datos capturados
-            Tarea tarea = new Tarea(nombre, responsable,estadoSeleccionado,proyectoSeleccionado);
+            // Crear un objeto Invitado con los datos capturados
+            Invitado tarea = new Invitado(nombre, responsable,estadoSeleccionado,proyectoSeleccionado);
 
             // Llamar al método registrarTarea del controlador para guardarlo
             tareaController.registrarTarea(tarea);
@@ -215,8 +215,8 @@ mostrarDialogoNuevoProyecto();        // TODO add your handling code here:
 
         if (nuevoAutor != null && !nuevoAutor.trim().isEmpty()) {
             try {
-                // Crear el objeto Proyecto y guardarlo usando ProyectoController
-                Proyecto autor = new Proyecto(nuevoAutor);
+                // Crear el objeto Evento y guardarlo usando ProyectoController
+                Evento autor = new Evento(nuevoAutor);
                 proyectoController.guardarProyecto(autor);
 
                 // Volver a cargar los autores en el JComboBox
@@ -231,9 +231,9 @@ mostrarDialogoNuevoProyecto();        // TODO add your handling code here:
     }
     private void cargarAutoresEnComboBox() {
         try {
-            List<Proyecto> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
+            List<Evento> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
             DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
-            for (Proyecto autor : autores) {
+            for (Evento autor : autores) {
                 modelo.addElement(autor.getNombre());  // Agregar el nombre del autor al modelo del ComboBox
             }
             cboProyecto.setModel(modelo);  // Establecer el modelo en el JComboBox

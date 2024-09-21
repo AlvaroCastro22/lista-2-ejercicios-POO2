@@ -11,8 +11,8 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import model.Proyecto;
-import model.Tarea;
+import model.Evento;
+import model.Invitado;
 
 /**
  *
@@ -150,16 +150,16 @@ public class FrmBuscarTarea extends javax.swing.JFrame {
         model.setRowCount(0);  // Limpiar la tabla antes de cargar los resultados
 
         try {
-            List<Tarea> tareas = tareaController.filtrarTareasporProyecto(proyecto);  // Si se ingresó Proyecto, buscar por Proyecto
+            List<Invitado> tareas = tareaController.filtrarTareasporProyecto(proyecto);  // Si se ingresó Evento, buscar por Evento
              System.out.println("Cantidad de tareas encontradas por proyecto: " + tareas.size());
 
          
-            for (Tarea tarea : tareas) {
+            for (Invitado tarea : tareas) {
                 Object[] fila = {
                     tarea.getNombre(),
                     tarea.getResponsable(),
                     tarea.getEstado(),
-                    tarea.getProyecto(),
+                    tarea.getEvento(),
                    
                 };
                 model.addRow(fila);  // Agregar cada tarea como fila en la tabla
@@ -183,15 +183,15 @@ public class FrmBuscarTarea extends javax.swing.JFrame {
 
         try {
             
-            List<Tarea> tareas = tareaController.listarTareas();  // Obtener todos los tareas desde el controlador
+            List<Invitado> tareas = tareaController.listarTareas();  // Obtener todos los tareas desde el controlador
                System.out.println("Cantidad de tareas encontradas por proyecto: " + tareas.size());
                
-            for (Tarea tarea : tareas) {
+            for (Invitado tarea : tareas) {
                 Object[] fila = {
                     tarea.getNombre(),
                     tarea.getResponsable(),
                     tarea.getEstado(),
-                    tarea.getProyecto(),
+                    tarea.getEvento(),
                     
                 };
                 model.addRow(fila);  // Agregar cada tarea como fila en la tabla
@@ -205,9 +205,9 @@ public class FrmBuscarTarea extends javax.swing.JFrame {
     
     private void cargarAutoresEnComboBox() {
         try {
-            List<Proyecto> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
+            List<Evento> autores = proyectoController.listarProyectos();  // Obtener autores desde ProyectoController
             DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
-            for (Proyecto autor : autores) {
+            for (Evento autor : autores) {
                 modelo.addElement(autor.getNombre());  // Agregar el nombre del proyecto al modelo del ComboBox
             }
             cboProyecto.setModel(modelo);  // Establecer el modelo en el JComboBox

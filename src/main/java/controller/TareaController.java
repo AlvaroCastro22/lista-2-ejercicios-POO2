@@ -3,26 +3,26 @@ package controller;
 
 import java.io.IOException;
 import java.util.List;
-import model.Tarea;
-import repository.TareaRepository;
+import model.Invitado;
+import repository.InvitadoRepository;
 
 
 public class TareaController {
-    public void registrarTarea(Tarea libro) throws IOException {
+    public void registrarTarea(Invitado libro) throws IOException {
         System.out.println("XD");
-        TareaRepository.guardarTarea(libro);  // Guardar el libro en el archivo
+        InvitadoRepository.guardarTarea(libro);  // Guardar el libro en el archivo
     }
 
     // Método para cargar todos los libros
-    public List<Tarea> listarTareas() throws IOException {
-        return TareaRepository.cargarTareas();  // Cargar los libros desde el archivo
+    public List<Invitado> listarTareas() throws IOException {
+        return InvitadoRepository.cargarTareas();  // Cargar los libros desde el archivo
     }
     
    
 
     // Método para buscar libros por Autor
-    public List<Tarea> filtrarTareasporProyecto(String autorNombre) throws IOException {
+    public List<Invitado> filtrarTareasporProyecto(String autorNombre) throws IOException {
         
-        return TareaRepository.buscarTareaPorProyecto(autorNombre);  // Buscar libros por Autor
+        return InvitadoRepository.buscarInvitadoPorEvento(autorNombre);  // Buscar libros por Autor
     }
 }
