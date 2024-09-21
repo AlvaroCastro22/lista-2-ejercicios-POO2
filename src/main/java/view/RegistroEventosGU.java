@@ -155,6 +155,11 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         });
 
         jButton2.setText("Resetear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("evento");
 
@@ -276,10 +281,10 @@ public class RegistroEventosGU extends javax.swing.JFrame {
             String nombre = txtNombre.getText();
             
             Evento evento = new Evento(nombre);
-
+            
             // Llamar al método registrarInvitado del controlador para guardarlo
             eventoController.guardarEvento(evento);
-
+            
             // Mostrar mensaje de éxito
             JOptionPane.showMessageDialog(this, "Evento guardado exitosamente.");
 
@@ -326,6 +331,17 @@ public class RegistroEventosGU extends javax.swing.JFrame {
     private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        txtNombreInvitado.setText("");
+        txtNumeroInvitado.setText("");
+        txtDireccion.setText("");
+        aceptaTerminos.setSelected(false);
+        dia.setSelectedIndex(-1);
+        mes.setSelectedIndex(-1);
+        año.setSelectedIndex(-1);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void limpiarFormulario() {
         txtNombre.setText("");
         
