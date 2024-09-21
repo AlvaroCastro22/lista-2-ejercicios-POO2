@@ -4,7 +4,7 @@
 
 package com.usil.mavenproject4;
 
-import view.FrmCrearTarea;
+import view.RegistroEventosGU;
 
 /**
  *
@@ -13,7 +13,7 @@ import view.FrmCrearTarea;
 public class Mavenproject4 {
 
     public static void main(String[] args) {
-            FrmCrearTarea formulario = new FrmCrearTarea();
-        formulario.setVisible(true);
+            RegistroEventosGU formulario = new RegistroEventosGU();
+            formulario.setVisible(true);
     }
 }

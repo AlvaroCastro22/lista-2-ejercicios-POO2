@@ -22,7 +22,7 @@ public class EventoRepository {
     private static final String FILE_PATH = "eventos.txt";
     
     
-    public static void guardarProyecto(Evento evento) throws IOException{
+    public static void guardarEvento(Evento evento) throws IOException{
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH,true))){
             writer.write(evento.getNombre());
             writer.newLine();

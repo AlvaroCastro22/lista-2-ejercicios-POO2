@@ -11,8 +11,9 @@ import repository.EventoRepository;
 
 
 public class EventoController {
-    public void guardarEvento(Evento proyecto) throws IOException {
-        EventoRepository.guardarProyecto(proyecto);  // Guardar el proyecto en el archivo
+    
+    public void guardarEvento(Evento evento) throws IOException {
+        EventoRepository.guardarEvento(evento);  // Guardar el evento en el archivo
     }
     
     public List<Evento> listarEventos() throws IOException {

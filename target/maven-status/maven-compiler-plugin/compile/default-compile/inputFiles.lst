@@ -1,9 +1,8 @@
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\view\FrmCrearTarea.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\controller\TareaController.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\repository\InvitadoRepository.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\controller\InvitadoController.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\model\Evento.java
 C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\com\usil\mavenproject4\Mavenproject4.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\repository\TareaRepository.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\repository\ProyectoRepository.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\model\Tarea.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\model\Proyecto.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\controller\ProyectoController.java
-C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\view\FrmBuscarTarea.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\controller\EventoController.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\repository\EventoRepository.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\model\Invitado.java
+C:\Users\alvar\OneDrive\Documentos\NetBeansProjects\mavenproject4\src\main\java\view\RegistroEventosGU.java
