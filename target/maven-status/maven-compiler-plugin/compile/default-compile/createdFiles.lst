@@ -4,6 +4,7 @@ controller\InvitadoController.class
 view\RegistroEventosGU$3.class
 repository\InvitadoRepository.class
 view\RegistroEventosGU$1.class
+view\RegistroEventosGU$7.class
 com\usil\mavenproject4\Mavenproject4.class
 view\RegistroEventosGU$2.class
 view\RegistroEventosGU.class

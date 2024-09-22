@@ -14,7 +14,7 @@ public class InvitadoController {
     }
 
     // Método para cargar todos los libros
-    public List<Invitado> listarTareas() throws IOException {
+    public List<Invitado> listarInvitados() throws IOException {
         return InvitadoRepository.cargarTareas();  // Cargar los libros desde el archivo
     }
     

@@ -44,7 +44,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btnGuardarEvento = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNombreInvitado = new javax.swing.JTextField();
@@ -61,7 +61,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         aceptaTerminos = new javax.swing.JCheckBox();
         btnRegistrar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnResetear = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         cboEvento = new javax.swing.JComboBox<>();
 
@@ -69,10 +69,10 @@ public class RegistroEventosGU extends javax.swing.JFrame {
 
         jLabel6.setText("Nombre Evento:");
 
-        jButton3.setText("Guardar Evento");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardarEvento.setText("Guardar Evento");
+        btnGuardarEvento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnGuardarEventoActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jButton3)))
+                        .addComponent(btnGuardarEvento)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -100,7 +100,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(83, 83, 83)
-                .addComponent(jButton3)
+                .addComponent(btnGuardarEvento)
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
@@ -154,10 +154,10 @@ public class RegistroEventosGU extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Resetear");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnResetear.setText("Resetear");
+        btnResetear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnResetearActionPerformed(evt);
             }
         });
 
@@ -173,7 +173,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
                 .addGap(136, 136, 136)
                 .addComponent(btnRegistrar)
                 .addGap(83, 83, 83)
-                .addComponent(jButton2)
+                .addComponent(btnResetear)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
@@ -246,7 +246,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrar)
-                    .addComponent(jButton2))
+                    .addComponent(btnResetear))
                 .addGap(23, 23, 23))
         );
 
@@ -274,7 +274,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_isMaleActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnGuardarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEventoActionPerformed
         
         try {
             // Capturar los datos del formulario
@@ -282,11 +282,17 @@ public class RegistroEventosGU extends javax.swing.JFrame {
             
             Evento evento = new Evento(nombre);
             
-            // Llamar al método registrarInvitado del controlador para guardarlo
-            eventoController.guardarEvento(evento);
             
-            // Mostrar mensaje de éxito
-            JOptionPane.showMessageDialog(this, "Evento guardado exitosamente.");
+            if(eventoController.listarEventos().contains(evento)){
+                JOptionPane.showMessageDialog(this, "Ya hay un nombre igual");
+            }else{
+                eventoController.guardarEvento(evento);
+            
+                // Mostrar mensaje de éxito
+                JOptionPane.showMessageDialog(this, "Evento guardado exitosamente.");
+            }  
+            // Llamar al método registrarInvitado del controlador para guardarlo
+            
 
             // Limpiar el formulario después de guardar
             limpiarFormulario();
@@ -294,7 +300,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         } catch (IOException e) {           
             JOptionPane.showMessageDialog(this, "Error al guardar el libro.", "Error", JOptionPane.ERROR_MESSAGE);
         }         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnGuardarEventoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         try {
@@ -312,13 +318,27 @@ public class RegistroEventosGU extends javax.swing.JFrame {
                 }
             
             boolean aceptaTermino = aceptaTerminos.isSelected();
-            Invitado invitado = new Invitado(nombreInvitado,numero,genero,fechaNacimiento,direccion,eventoSeleccionado,aceptaTermino);
             
+            Invitado invitado = new Invitado(nombreInvitado,numero,genero,fechaNacimiento,direccion,eventoSeleccionado,aceptaTermino);
+            boolean guardarInvitado = true;
+            for(Invitado invitadoIteracion:invitadoController.listarInvitados()){
+                if(invitadoIteracion.getNombre().equals(invitado.getNombre()) && invitadoIteracion.getNumCelular().equals(invitado.getNumCelular())){
+                    
+                    guardarInvitado = false;
+                }
+            }
+        
             // Llamar al método registrarInvitado del controlador para guardarlo
-            invitadoController.registrarInvitado(invitado);
+            if(guardarInvitado){
+                invitadoController.registrarInvitado(invitado);
+                JOptionPane.showMessageDialog(this, "Invitado guardada exitosamente.");
+            }else{
+                JOptionPane.showMessageDialog(this,"ERROR, no se puede repetir nombre y celular");
+            }
+            
 
             // Mostrar mensaje de éxito
-            JOptionPane.showMessageDialog(this, "Invitado guardada exitosamente.");
+            
 
             // Limpiar el formulario después de guardar
             
@@ -332,7 +352,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetearActionPerformed
         txtNombreInvitado.setText("");
         txtNumeroInvitado.setText("");
         txtDireccion.setText("");
@@ -341,7 +361,7 @@ public class RegistroEventosGU extends javax.swing.JFrame {
         mes.setSelectedIndex(-1);
         año.setSelectedIndex(-1);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnResetearActionPerformed
     private void limpiarFormulario() {
         txtNombre.setText("");
         
@@ -397,14 +417,14 @@ public class RegistroEventosGU extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox aceptaTerminos;
     private javax.swing.JComboBox<String> año;
+    private javax.swing.JButton btnGuardarEvento;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnResetear;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboEvento;
     private javax.swing.JComboBox<String> dia;
     private javax.swing.JRadioButton isFemale;
     private javax.swing.JRadioButton isMale;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
