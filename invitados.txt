@@ -1,2 +1,3 @@
 
 Alvaro;912333;masculino;19/Junio/1994;adasdasd;aniversario;true
+Manuel;231233;masculino;4/Abril/1984;ate;aniversario;true
